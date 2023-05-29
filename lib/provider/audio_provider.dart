@@ -59,7 +59,7 @@ class AudioProvider extends ChangeNotifier {
         ),
       ),
       showNotification: true,
-      autoStart: true,
+      autoStart: false,
     );
     _currentAudioUrl = url;
     notifyListeners();

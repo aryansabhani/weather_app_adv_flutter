@@ -16,8 +16,9 @@ class _VideoScreenState extends State<VideoScreen> {
   TextEditingController textController = TextEditingController();
 
   final List<String> videoUrls = [
-    'assets/videos/bee1.mp4',
-    'assets/videos/bee2.mp4',
+    'assets/videos/v1.mp4',
+    'assets/videos/v2.mp4',
+    'assets/videos/v3.mp4',
   ];
   @override
   Widget build(BuildContext context) {
