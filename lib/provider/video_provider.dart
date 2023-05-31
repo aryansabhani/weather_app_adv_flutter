@@ -5,6 +5,13 @@ import 'package:video_player/video_player.dart';
 class VideoProvider extends ChangeNotifier {
   VideoPlayerController? videoPlayerController;
   ChewieController? chewieController;
+  int   currentIndex = 0;
+
+  changeCurrentPageIndex(int index) {
+    currentIndex = index;
+    notifyListeners();
+  }
+
 
   open(String url) {
     videoPlayerController = VideoPlayerController.asset(url)
@@ -19,73 +26,4 @@ class VideoProvider extends ChangeNotifier {
       });
   }
 
-  int currentIndex = 0;
-
-  changeCurrentPageIndex(int index) {
-    currentIndex = index;
-    notifyListeners();
-  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -59,7 +59,7 @@ class AudioProvider extends ChangeNotifier {
         ),
       ),
       showNotification: true,
-      autoStart: false,
+      autoStart: true,
     );
     _currentAudioUrl = url;
     notifyListeners();
@@ -69,6 +69,21 @@ class AudioProvider extends ChangeNotifier {
 
   changeCurrentPageIndex(int index) {
     currentIndex = index;
+    notifyListeners();
+  }
+
+  play(){
+    assetsAudioPlayer.pause();
+    notifyListeners();
+  }
+
+  pause(){
+    assetsAudioPlayer.play();
+    notifyListeners();
+  }
+
+  seekAudio(){
+    assetsAudioPlayer.seekBy(const Duration(seconds: 10));
     notifyListeners();
   }
 }

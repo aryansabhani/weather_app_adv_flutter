@@ -20,35 +20,42 @@ class _VideoScreenState extends State<VideoScreen> {
     'assets/videos/v2.mp4',
     'assets/videos/v3.mp4',
   ];
+
   @override
   Widget build(BuildContext context) {
-    Provider.of<VideoProvider>(context, listen: false).open('assets/videos/bee1.mp4');
+
     return Scaffold(
       body: Consumer<VideoProvider>(
         builder: (context, provider, child) => Column(
           children: [
             Expanded(
               child: CarouselSlider(
-                items: videoUrls.map((e) => (provider.chewieController == null)
-                    ? const Center(
-                  child: CircularProgressIndicator(),
-                )
-                : AspectRatio(
-                    aspectRatio:
-                    provider.videoPlayerController!.value.aspectRatio,
-                    child: Chewie(
-                      controller: provider.chewieController!,
-                    ),
-                  ),
-                ).toList(),
+                items: videoUrls.map((e) {
+                  Provider.of<VideoProvider>(context, listen: false).open(e);
+                  print("E::: $e");
+                  return (provider.chewieController == null)
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : AspectRatio(
+                          aspectRatio:
+                              provider.videoPlayerController!.value.aspectRatio,
+                          child: Chewie(
+                            controller: provider.chewieController!,
+                          ),
+                        );
+                }).toList(),
                 options: CarouselOptions(
                   height: 200.0,
                   enableInfiniteScroll: false,
                   aspectRatio: 1.0,
                   enlargeCenterPage: true,
-                  onPageChanged: (index, reason) => provider.changeCurrentPageIndex(index),
+                  onPageChanged: (index, reason) {
+                    print("index:: $index");
+                    return provider.changeCurrentPageIndex(index);
+                  },
                 ),
-                ),
+              ),
             ),
             TextFormField(
               controller: textController,
@@ -58,176 +65,6 @@ class _VideoScreenState extends State<VideoScreen> {
           ],
         ),
       ),
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
