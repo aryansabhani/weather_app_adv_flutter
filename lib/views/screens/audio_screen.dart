@@ -164,7 +164,7 @@ class AudioScreen extends StatelessWidget {
                   ),
                   IconButton(
                     onPressed: () {
-                      provider.assetsAudioPlayer.seekBy(const Duration(seconds: 10));
+                      provider.seekAudio();
                     },
                     iconSize: 48,
                     icon: const Icon(Icons.forward_10),
